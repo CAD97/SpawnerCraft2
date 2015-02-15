@@ -1,13 +1,15 @@
 package cad97.spawnercraft2;
 
+import cad97.spawnercraft2.handler.ConfigHandler;
 import cad97.spawnercraft2.reference.Reference;
 import cad97.spawnercraft2.utility.LogHelper;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid=Reference.MOD_ID, name=Reference.MOD_NAME, version=Reference.VERSION)
+@Mod(modid=Reference.MOD_ID, name=Reference.MOD_NAME, version=Reference.VERSION, guiFactory = Reference.GUI_FACTORY_CLASS)
 public class SpawnerCraft2
 {
 	@Mod.Instance(Reference.MOD_ID)
@@ -16,7 +18,9 @@ public class SpawnerCraft2
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
-		//stub
+		ConfigHandler.init(event.getSuggestedConfigurationFile());
+		FMLCommonHandler.instance().bus().register(ConfigHandler.config);
+
 		LogHelper.info(Reference.MOD_NAME + " preInit finished");
 	}
 
