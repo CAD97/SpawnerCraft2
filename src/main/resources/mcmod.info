@@ -1,0 +1,15 @@
+[
+	{
+		"modid":"spawnercraft2",
+		"name":"SpawnerCraft2",
+		"version":"2.0",
+		"description":"",
+		"mcversion":"1.8",
+		"url":"https://github.com/CAD97/SpawnerCraft2",
+		"authorList":["CAD97"],
+		"credits":"The Internet for teaching me to mod",
+		"logoFile":"",
+		"parent":"",
+		"dependencies":[]
+	}
+]
