@@ -1,4 +1,4 @@
-package cad97.spawnercraft2.creativetabs;
+package cad97.spawnercraft.creativetabs;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;

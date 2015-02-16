@@ -1,4 +1,4 @@
-package cad97.spawnercraft2.client.gui;
+package cad97.spawnercraft.client.gui;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;

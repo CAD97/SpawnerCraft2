@@ -1,4 +1,4 @@
-package cad97.spawnercraft2.item;
+package cad97.spawnercraft.item;
 
 public class ItemMobSpirit extends ItemMobSoul
 {

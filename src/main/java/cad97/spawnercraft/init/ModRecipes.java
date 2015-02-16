@@ -1,9 +1,10 @@
-package cad97.spawnercraft2.init;
+package cad97.spawnercraft.init;
 
-import cad97.spawnercraft2.handler.ConfigHandler;
-import cad97.spawnercraft2.reference.Reference;
-import cad97.spawnercraft2.utility.LogHelper;
+import cad97.spawnercraft.handler.ConfigHandler;
+import cad97.spawnercraft.reference.Reference;
+import cad97.spawnercraft.utility.LogHelper;
 import net.minecraft.entity.EntityList;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -33,7 +34,14 @@ public class ModRecipes
 
 			if (ConfigHandler.spawnerCraftable)
 			{
-				// mobCage
+				GameRegistry.addShapedRecipe(
+						new ItemStack(ModBlocks.mobCage),
+						// from
+						"III",
+						"I I",
+						"III",
+						'I', new ItemStack(Blocks.iron_bars)
+				);
 			}
 		}
 

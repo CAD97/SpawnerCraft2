@@ -1,4 +1,4 @@
-package cad97.spawnercraft2.item;
+package cad97.spawnercraft.item;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityList;

@@ -1,10 +1,11 @@
-package cad97.spawnercraft2;
+package cad97.spawnercraft;
 
-import cad97.spawnercraft2.handler.ConfigHandler;
-import cad97.spawnercraft2.init.ModItems;
-import cad97.spawnercraft2.init.ModRecipes;
-import cad97.spawnercraft2.reference.Reference;
-import cad97.spawnercraft2.utility.LogHelper;
+import cad97.spawnercraft.handler.ConfigHandler;
+import cad97.spawnercraft.init.ModBlocks;
+import cad97.spawnercraft.init.ModItems;
+import cad97.spawnercraft.init.ModRecipes;
+import cad97.spawnercraft.reference.Reference;
+import cad97.spawnercraft.utility.LogHelper;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -24,6 +25,7 @@ public class SpawnerCraft2
 		FMLCommonHandler.instance().bus().register(ConfigHandler.config);
 
 		ModItems.init();
+		ModBlocks.init();
 
 		LogHelper.info(Reference.MOD_NAME + " preInit finished");
 	}

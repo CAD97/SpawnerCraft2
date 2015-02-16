@@ -1,6 +1,6 @@
-package cad97.spawnercraft2.item;
+package cad97.spawnercraft.item;
 
-import cad97.spawnercraft2.creativetabs.SpawnerCraftTab;
+import cad97.spawnercraft.creativetabs.SpawnerCraftTab;
 import net.minecraft.item.Item;
 
 public class SpawnerCraftItem extends Item

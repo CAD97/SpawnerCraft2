@@ -1,10 +1,10 @@
-package cad97.spawnercraft2.init;
+package cad97.spawnercraft.init;
 
-import cad97.spawnercraft2.item.ItemMobEssence;
-import cad97.spawnercraft2.item.ItemMobAgglomeration;
-import cad97.spawnercraft2.item.ItemMobSpirit;
-import cad97.spawnercraft2.reference.Reference;
-import cad97.spawnercraft2.utility.LogHelper;
+import cad97.spawnercraft.item.ItemMobEssence;
+import cad97.spawnercraft.item.ItemMobAgglomeration;
+import cad97.spawnercraft.item.ItemMobSpirit;
+import cad97.spawnercraft.reference.Reference;
+import cad97.spawnercraft.utility.LogHelper;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.entity.EntityList;
 import net.minecraft.item.Item;
@@ -30,8 +30,8 @@ public class ModItems
 		// register item textures
 		for (EntityList.EntityEggInfo entityEggInfo : (Collection<EntityList.EntityEggInfo>) EntityList.entityEggs.values())
 		{
-			ModelLoader.setCustomModelResourceLocation(mobEssence, entityEggInfo.spawnedID, new ModelResourceLocation("spawnercraft2:mobEssence", "inventory"));
-			ModelLoader.setCustomModelResourceLocation(mobAgglomeration, entityEggInfo.spawnedID, new ModelResourceLocation("spawnercraft2:mobAgglomeration", "inventory"));
+			ModelLoader.setCustomModelResourceLocation(mobEssence, entityEggInfo.spawnedID, new ModelResourceLocation("spawnercraft:mobEssence", "inventory"));
+			ModelLoader.setCustomModelResourceLocation(mobAgglomeration, entityEggInfo.spawnedID, new ModelResourceLocation("spawnercraft:mobAgglomeration", "inventory"));
 			ModelLoader.setCustomModelResourceLocation(mobSpirit, entityEggInfo.spawnedID, new ModelResourceLocation("minecraft:spawn_egg", "inventory"));
 		}
 

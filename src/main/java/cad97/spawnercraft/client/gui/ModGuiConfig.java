@@ -1,7 +1,7 @@
-package cad97.spawnercraft2.client.gui;
+package cad97.spawnercraft.client.gui;
 
-import cad97.spawnercraft2.handler.ConfigHandler;
-import cad97.spawnercraft2.reference.Reference;
+import cad97.spawnercraft.handler.ConfigHandler;
+import cad97.spawnercraft.reference.Reference;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.fml.client.config.GuiConfig;

@@ -1,8 +1,8 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "spawnercraft2:items/mobAgglomeration",
-        "layer1": "spawnercraft2:items/mobAgglomeration_overlay"
+        "layer0": "spawnercraft:items/mobEssence",
+        "layer1": "spawnercraft:items/mobEssence_overlay"
     },
     "display": {
         "thirdperson": {
