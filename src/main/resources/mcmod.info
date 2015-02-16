@@ -1,7 +1,7 @@
 [
 	{
-		"modid":"spawnercraft2",
-		"name":"SpawnerCraft2",
+		"modid":"spawnercraft",
+		"name":"SpawnerCraft",
 		"version":"2.0",
 		"description":"",
 		"mcversion":"1.8",
