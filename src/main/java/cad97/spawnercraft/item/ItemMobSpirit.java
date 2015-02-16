@@ -70,6 +70,13 @@ public class ItemMobSpirit extends ItemMobSoul
 
 				return true;
 			}
+			else if (state.getBlock() == Blocks.mob_spawner)
+			{
+				return false;
+				// do nothing
+				// prevent misuse of Spirit trying to change an active spawner
+				// usage may be mistaken as we are stealing mob_egg's texture and functionality except that
+			}
 			else
 			{
 				// below is taken directly from ItemMonsterPlacer starting line 99
