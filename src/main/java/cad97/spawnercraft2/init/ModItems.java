@@ -3,6 +3,7 @@ package cad97.spawnercraft2.init;
 import cad97.spawnercraft2.item.ItemMobEssence;
 import cad97.spawnercraft2.item.ItemMobAgglomeration;
 import cad97.spawnercraft2.item.ItemMobSpirit;
+import cad97.spawnercraft2.reference.Reference;
 import cad97.spawnercraft2.utility.LogHelper;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.entity.EntityList;
@@ -31,9 +32,9 @@ public class ModItems
 		{
 			ModelLoader.setCustomModelResourceLocation(mobEssence, entityEggInfo.spawnedID, new ModelResourceLocation("spawnercraft2:mobEssence", "inventory"));
 			ModelLoader.setCustomModelResourceLocation(mobAgglomeration, entityEggInfo.spawnedID, new ModelResourceLocation("spawnercraft2:mobAgglomeration", "inventory"));
-			ModelLoader.setCustomModelResourceLocation(mobSpirit, entityEggInfo.spawnedID, new ModelResourceLocation("spawnercraft2:mobSpirit", "inventory"));
+			ModelLoader.setCustomModelResourceLocation(mobSpirit, entityEggInfo.spawnedID, new ModelResourceLocation("minecraft:spawn_egg", "inventory"));
 		}
 
-		LogHelper.info("Items initialized");
+		LogHelper.info(Reference.MOD_NAME + " Items initialized");
 	}
 }
