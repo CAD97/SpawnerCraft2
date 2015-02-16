@@ -35,7 +35,7 @@ public class SpawnerCraft2
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event)
 	{
-		MinecraftForge.EVENT_BUS.register(new DropsListener());
+		MinecraftForge.EVENT_BUS.register(DropsListener.instance);
 
 		ModRecipes.init();
 

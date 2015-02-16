@@ -14,6 +14,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class DropsListener
 {
+	public static final DropsListener instance = new DropsListener();
+
 	@SubscribeEvent
 	public void onMobDrops(LivingDropsEvent event)
 	{
