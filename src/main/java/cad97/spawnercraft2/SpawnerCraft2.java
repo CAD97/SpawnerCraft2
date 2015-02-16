@@ -22,14 +22,15 @@ public class SpawnerCraft2
 		ConfigHandler.init(event.getSuggestedConfigurationFile());
 		FMLCommonHandler.instance().bus().register(ConfigHandler.config);
 
+		ModItems.init();
+
 		LogHelper.info(Reference.MOD_NAME + " preInit finished");
 	}
 
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event)
 	{
-		ModItems.init();
-
+		//stub
 		LogHelper.info(Reference.MOD_NAME + " init finished");
 	}
 
