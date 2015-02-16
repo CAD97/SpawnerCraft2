@@ -32,7 +32,7 @@ public class ModItems
 		{
 			ModelLoader.setCustomModelResourceLocation(mobEssence, entityEggInfo.spawnedID, new ModelResourceLocation("spawnercraft:mobEssence", "inventory"));
 			ModelLoader.setCustomModelResourceLocation(mobAgglomeration, entityEggInfo.spawnedID, new ModelResourceLocation("spawnercraft:mobAgglomeration", "inventory"));
-			ModelLoader.setCustomModelResourceLocation(mobSpirit, entityEggInfo.spawnedID, new ModelResourceLocation("minecraft:spawn_egg", "inventory"));
+			ModelLoader.setCustomModelResourceLocation(mobSpirit, entityEggInfo.spawnedID, new ModelResourceLocation("spawnercraft:mobSpirit", "inventory"));
 		}
 
 		LogHelper.info(Reference.MOD_NAME + " Items initialized");
