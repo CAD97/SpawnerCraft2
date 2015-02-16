@@ -1,6 +1,7 @@
 package cad97.spawnercraft2.handler;
 
 import cad97.spawnercraft2.reference.Reference;
+import cad97.spawnercraft2.utility.LogHelper;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -22,6 +23,8 @@ public class ConfigHandler
 			config = new Configuration(configFile);
 			loadConfiguration();
 		}
+
+		LogHelper.info("ConfigHandler initialized");
 	}
 
 	@SubscribeEvent

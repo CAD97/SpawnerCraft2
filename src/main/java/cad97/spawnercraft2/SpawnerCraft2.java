@@ -1,6 +1,7 @@
 package cad97.spawnercraft2;
 
 import cad97.spawnercraft2.handler.ConfigHandler;
+import cad97.spawnercraft2.init.ModItems;
 import cad97.spawnercraft2.reference.Reference;
 import cad97.spawnercraft2.utility.LogHelper;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -27,7 +28,8 @@ public class SpawnerCraft2
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event)
 	{
-		//stub
+		ModItems.init();
+
 		LogHelper.info(Reference.MOD_NAME + " init finished");
 	}
 
