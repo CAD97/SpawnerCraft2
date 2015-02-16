@@ -1,11 +1,13 @@
 package cad97.spawnercraft;
 
 import cad97.spawnercraft.handler.ConfigHandler;
+import cad97.spawnercraft.handler.DropsListener;
 import cad97.spawnercraft.init.ModBlocks;
 import cad97.spawnercraft.init.ModItems;
 import cad97.spawnercraft.init.ModRecipes;
 import cad97.spawnercraft.reference.Reference;
 import cad97.spawnercraft.utility.LogHelper;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -33,6 +35,8 @@ public class SpawnerCraft2
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event)
 	{
+		MinecraftForge.EVENT_BUS.register(new DropsListener());
+
 		ModRecipes.init();
 
 		LogHelper.info(Reference.MOD_NAME + " init finished");
