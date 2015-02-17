@@ -11,20 +11,20 @@ survival map normally.
 
 ## Installing
 ### From Source
-0. Install git (or a git GUI) to your machine.
-1. In the folder where you want to save the repo, do:
+* Install git (or a git GUI) to your machine.
+* In the folder where you want to save the repo, do:
 ```
-git clone https://github.com/CAD97/SpawnerCraft2.git
-cd SpawnerCraft2
-gradlew setupDecompWorkspace idea | eclipse
+> git clone https://github.com/CAD97/SpawnerCraft2.git
+> cd SpawnerCraft2
+> gradlew setupDecompWorkspace idea | eclipse
 ```
-1. (use idea OR eclipse, not both. Whichever is appropriate for your machine
-2. Point your IDE to the appropriate folder and code away
-3. If you want to build the latest, replace the last command with `gradlew build` and use the .jar it builds
+(use idea OR eclipse, not both. Whichever is appropriate for your machine)
+* Point your IDE to the appropriate folder and code away
+* If you want to build the latest, replace the last command with `> gradlew build` and use the .jar it builds
 (Located in .\build\libs)
 
 ### From Release
-1. Go to the [https://github.com/CAD97/SpawnerCraft2/releases](releases) tab
+1. Go to the [releases](https://github.com/CAD97/SpawnerCraft2/releases) tab
 2. Download the version that you want
 3. Drop into the mods folder of your local Forge installation
 4. Enjoy!
