@@ -1,6 +1,6 @@
-item.mobEssence.name=Essence of
-item.mobAgglomeration.name=Agglomeration of
-item.mobSpirit.name=Spirit of
+item.mobEssence.name=Essence of %s
+item.mobAgglomeration.name=Agglomeration of %s
+item.mobSpirit.name=Spirit of %s
 
 item.mobRod.name=Mob Fishing Pole
 

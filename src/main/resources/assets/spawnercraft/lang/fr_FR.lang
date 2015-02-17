@@ -1,6 +1,6 @@
-item.mobEssence.name=Essence de
-item.mobAgglomeration.name=Agglomération de
-item.mobSpirit.name=Esprit de
+item.mobEssence.name=Essence de %s
+item.mobAgglomeration.name=Agglomération de %s
+item.mobSpirit.name=Esprit de %s
 
 item.mobRod.name=Canne à pèche Mob
 

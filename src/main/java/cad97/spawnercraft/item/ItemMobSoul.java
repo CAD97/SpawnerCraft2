@@ -38,12 +38,14 @@ public abstract class ItemMobSoul extends SpawnerCraftItem
 
 		if (mobName != null)
 		{
-			itemName += " " + StatCollector.translateToLocal("entity." + mobName + ".name");
+			mobName = StatCollector.translateToLocal("entity." + mobName + ".name");
 		}
 		else
 		{
-			itemName += " Mob";
+			mobName = "Mob";
 		}
+
+		itemName = String.format(itemName, mobName);
 
 		return itemName;
 	}
