@@ -19,7 +19,10 @@ public class DropsListener
 	@SubscribeEvent
 	public void onMobDrops(LivingDropsEvent event)
 	{
-		if (event.source.getSourceOfDamage() instanceof EntityPlayer && ((EntityPlayer) event.source.getSourceOfDamage()).getCurrentEquippedItem().getItem() == ModItems.mobRod) {
+		if (event.source.getSourceOfDamage() instanceof EntityPlayer &&
+				(!ConfigHandler.requireMobFishing || ((EntityPlayer) event.source.getSourceOfDamage()).getCurrentEquippedItem().getItem() == ModItems.mobRod)
+				)
+		{
 			Entity entity = event.entity;
 			int meta = EntityList.getEntityID(entity);
 			entity.entityDropItem(new ItemStack(ModItems.mobEssence, 1, meta), 0.0F);

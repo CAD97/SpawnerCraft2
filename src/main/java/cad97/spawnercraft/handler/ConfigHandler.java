@@ -14,6 +14,7 @@ public class ConfigHandler
 
 	public static boolean spawnerCraftable;
 	public static boolean spawnerDropRequireSilk;
+	public static boolean requireMobFishing;
 
 	public static void init(File configFile)
 	{
@@ -39,7 +40,8 @@ public class ConfigHandler
 	private static void loadConfiguration()
 	{
 		spawnerCraftable = config.get(Configuration.CATEGORY_GENERAL, "spawnerCraftable", false, "Whether you can craft an Empty Spawner from iron bars").setRequiresMcRestart(true).getBoolean();
-		spawnerDropRequireSilk = config.get(Configuration.CATEGORY_GENERAL,"spawnerDropRequireSilk",  false, "Whether Empty Spawner drop requires Silk Touch").getBoolean();
+		spawnerDropRequireSilk = config.get(Configuration.CATEGORY_GENERAL, "spawnerDropRequireSilk",  false, "Whether Empty Spawner drop requires Silk Touch").getBoolean();
+		requireMobFishing = config.get(Configuration.CATEGORY_GENERAL, "requireMobFishing", true, "Whether a Mob Fishing Pole is required to drop Essence of Mob").getBoolean();
 
 		if (config.hasChanged())
 		{
