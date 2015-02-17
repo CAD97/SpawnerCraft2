@@ -2,6 +2,8 @@ item.mobEssence.name=Essence of
 item.mobAgglomeration.name=Agglomeration of
 item.mobSpirit.name=Spirit of
 
+item.mobRod.name=Mob Fishing Pole
+
 tile.mobCage.name=Empty Spawner
 
 itemGroup.tabSC=SpawnerCraft
