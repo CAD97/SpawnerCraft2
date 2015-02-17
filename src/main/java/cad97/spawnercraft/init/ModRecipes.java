@@ -5,6 +5,7 @@ import cad97.spawnercraft.reference.Reference;
 import cad97.spawnercraft.utility.LogHelper;
 import net.minecraft.entity.EntityList;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -30,6 +31,15 @@ public class ModRecipes
 					"AA",
 					"AA",
 					'A', new ItemStack(ModItems.mobAgglomeration, 1, meta)
+			);
+
+			GameRegistry.addShapedRecipe(
+					new ItemStack(ModItems.mobRod),
+					// from
+					"R",
+					"C",
+					'R', Items.fishing_rod,
+					'C', ModBlocks.mobCage
 			);
 
 			if (ConfigHandler.spawnerCraftable)
