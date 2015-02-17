@@ -18,10 +18,11 @@ git clone https://github.com/CAD97/SpawnerCraft2.git
 cd SpawnerCraft2
 gradlew setupDecompWorkspace idea | eclipse
 ```
-  * (use idea OR eclipse, not both. Whichever is appropriate for your machine
+1. (use idea OR eclipse, not both. Whichever is appropriate for your machine
 2. Point your IDE to the appropriate folder and code away
 3. If you want to build the latest, replace the last command with `gradlew build` and use the .jar it builds
 (Located in .\build\libs)
+
 ### From Release
 1. Go to the [https://github.com/CAD97/SpawnerCraft2/releases](releases) tab
 2. Download the version that you want
