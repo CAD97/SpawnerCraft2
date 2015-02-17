@@ -1,0 +1,9 @@
+item.mobEssence.name=Essence de
+item.mobAgglomeration.name=Agglomération de
+item.mobSpirit.name=Esprit de
+
+item.mobRod.name=Canne à pèche Mob
+
+tile.mobCage.name=Spawner vide
+
+itemGroup.tabSC=SpawnerCraft
