@@ -13,7 +13,7 @@ survival map normally.
 ### From Source
 * Install git (or a git GUI) to your machine.
 * In the folder where you want to save the repo, do:
-```
+```bash
 > git clone https://github.com/CAD97/SpawnerCraft2.git
 > cd SpawnerCraft2
 > gradlew setupDecompWorkspace idea | eclipse
