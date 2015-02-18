@@ -26,7 +26,7 @@ public class ModRecipes
 					"EE",
 					'E', new ItemStack(ModItems.mobEssence, 1, meta));
 			GameRegistry.addShapedRecipe(
-					new ItemStack(ModItems.mobSpirit),
+					new ItemStack(ModItems.mobSpirit, 1, meta),
 					// from
 					"AA",
 					"AA",
