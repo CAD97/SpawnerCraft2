@@ -45,6 +45,9 @@ public class DropsListener
 			{
 				event.drops.add(new ItemStack(ModBlocks.mobCage, 1));
 			}
+
+			// Drop some Essence of Mob?
+			// No can do, can't get spawner to tell me what mob it is spawning.
 		}
 	}
 }
