@@ -26,8 +26,8 @@ public class SpawnerCraft2
 		ConfigHandler.init(event.getSuggestedConfigurationFile());
 		FMLCommonHandler.instance().bus().register(new ConfigHandler());
 
-		ModItems.init();
-		ModBlocks.init();
+		ModItems.init(event.getSide());
+		ModBlocks.init(event.getSide());
 
 		LogHelper.info(Reference.MOD_NAME + " preInit finished");
 	}

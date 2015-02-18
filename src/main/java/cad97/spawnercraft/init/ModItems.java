@@ -11,6 +11,8 @@ import net.minecraft.entity.EntityList;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Collection;
 
@@ -21,8 +23,7 @@ public class ModItems
 	public static final Item mobSpirit = new ItemMobSpirit();
 	public static final Item mobRod = new ItemMobRod();
 
-	@SuppressWarnings("unchecked")
-	public static void init()
+	public static void init(Side side)
 	{
 		// register items
 		GameRegistry.registerItem(mobEssence, "mobEssence");
@@ -30,6 +31,18 @@ public class ModItems
 		GameRegistry.registerItem(mobSpirit, "mobSpirit");
 		GameRegistry.registerItem(mobRod, "mobRod");
 
+		if (side.isClient())
+		{
+			registerTextures();
+		}
+
+		LogHelper.info(Reference.MOD_NAME + " Items initialized");
+	}
+
+	@SideOnly(Side.CLIENT)
+	@SuppressWarnings("unchecked")
+	private static void registerTextures()
+	{
 		// register item textures
 		for (EntityList.EntityEggInfo entityEggInfo : (Collection<EntityList.EntityEggInfo>) EntityList.entityEggs.values())
 		{
@@ -38,7 +51,5 @@ public class ModItems
 			ModelLoader.setCustomModelResourceLocation(mobSpirit, entityEggInfo.spawnedID, new ModelResourceLocation("spawnercraft:mobSpirit", "inventory"));
 		}
 		ModelLoader.setCustomModelResourceLocation(mobRod, 0, new ModelResourceLocation("spawnercraft:mobRod", "inventory"));
-
-		LogHelper.info(Reference.MOD_NAME + " Items initialized");
 	}
 }
