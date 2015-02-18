@@ -42,7 +42,7 @@ version you are using.
 ## Contributing
 ### Pull Requests
 Create a pull request. I will see it. If you put something meaningful in the description box (or it is self-descriptive,
-like `add fr_FR.txt`), I will do one of four things. A. Respond how you can improve your pull request. B. Respond and
+like `add fr_FR.lang`), I will do one of four things. A. Respond how you can improve your pull request. B. Respond and
 then merge your pull request. C. Respond why your pull request does not meet my vision. D. Respond and then code what
 was in your pull request myself, if I like it but not your implementation.
 ### Issues
