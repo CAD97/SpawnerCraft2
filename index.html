@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Spawnercraft2 by CAD97</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/CAD97/SpawnerCraft2">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/CAD97/SpawnerCraft2/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/CAD97/SpawnerCraft2/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Spawnercraft2</h1>
+          <p>Recoding of SpawnerCraft mod for Minecraft 1.8, using Forge</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/CAD97">CAD97</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>
+<a id="spawnercraft" class="anchor" href="#spawnercraft" aria-hidden="true"><span class="octicon octicon-link"></span></a>SpawnerCraft</h1>
+
+<p>Recoding of SpawnerCraft mod for Minecraft 1.8, using Forge</p>
+
+<p>SpawnerCraft is a part of my "Nearly Vanilla" series of mods. This series intends to introduce small gameplay changes
+into the game to make more things within the game available and convenient, while maintaining balance.</p>
+
+<p>SpawnerCraft allows a player to create their own spawners wherever they wish, while (by default) still requiring the
+player to find a generated spawner, therefor keeping the element of exploration and reward in vanilla, while adding the
+possiblility to move spawners (with a bit of work) or even obtain a non-standard spawner that is not available in a
+survival map normally.</p>
+
+<h2>
+<a id="installing" class="anchor" href="#installing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing</h2>
+
+<h3>
+<a id="from-source" class="anchor" href="#from-source" aria-hidden="true"><span class="octicon octicon-link"></span></a>From Source</h3>
+
+<ul>
+<li>Install git (or a git GUI) to your machine.</li>
+<li>In the folder where you want to save the repo, do:</li>
+</ul>
+
+<div class="highlight highlight-bash"><pre><span class="pl-k">&gt;</span> git clone https://github.com/CAD97/SpawnerCraft2.git
+<span class="pl-k">&gt;</span> <span class="pl-s3">cd</span> SpawnerCraft2
+<span class="pl-k">&gt;</span> gradlew setupDecompWorkspace idea <span class="pl-k">|</span> eclipse</pre></div>
+
+<p>(use idea OR eclipse, not both. Whichever is appropriate for your machine)</p>
+
+<ul>
+<li>Point your IDE to the appropriate folder and code away</li>
+<li>If you want to build the latest, replace the last command with <code>&gt; gradlew build</code> and use the .jar it builds
+(Located in .\build\libs)</li>
+</ul>
+
+<h3>
+<a id="from-release" class="anchor" href="#from-release" aria-hidden="true"><span class="octicon octicon-link"></span></a>From Release</h3>
+
+<ol>
+<li>Go to the <a href="https://github.com/CAD97/SpawnerCraft2/releases">releases</a> tab</li>
+<li>Download the version that you want</li>
+<li>Drop into the mods folder of your local Forge installation</li>
+<li>Enjoy!</li>
+</ol>
+
+<h2>
+<a id="naming-conventions" class="anchor" href="#naming-conventions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Naming Conventions</h2>
+
+<p>When I upload a binary .jar to the releases tab, I name it by one of two conventions:</p>
+
+<h3>
+<a id="release" class="anchor" href="#release" aria-hidden="true"><span class="octicon octicon-link"></span></a>Release</h3>
+
+<p><code>MCversion-MODversion</code></p>
+
+<h3>
+<a id="prerelease" class="anchor" href="#prerelease" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prerelease</h3>
+
+<p><code>MCversion-YYYY.MM.DD-HH.MM</code> with optional tag <code>-rc</code> for a release candidate</p>
+
+<p>The version within the mod will refer to the next version most of the time. Please refer back to the .jar to see what
+version you are using.</p>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<h3>
+<a id="pull-requests" class="anchor" href="#pull-requests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pull Requests</h3>
+
+<p>Create a pull request. I will see it. If you put something meaningful in the description box (or it is self-descriptive,
+like <code>add fr_FR.lang</code>), I will do one of four things. A. Respond how you can improve your pull request. B. Respond and
+then merge your pull request. C. Respond why your pull request does not meet my vision. D. Respond and then code what
+was in your pull request myself, if I like it but not your implementation.</p>
+
+<h3>
+<a id="issues" class="anchor" href="#issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Issues</h3>
+
+<p>Submit a bug report. I will see it. If you put something meaningful in the description box, I will attempt to fix it.
+If you also submit a pull request to fix the issue, I will thank you gratefully and then consider the pull request.</p>
+
+<h3>
+<a id="feature-request" class="anchor" href="#feature-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Feature Request</h3>
+
+<p>Submit a bug report with tag <code>Enhancement</code>, and explain why you think the feature would fit into this mod. I will see it
+and consider it.</p>
+
+<h2>
+<a id="lisense" class="anchor" href="#lisense" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lisense</h2>
+
+<p>See LICENSE. This source is Open Source under the GNU GPL 3. As such, you may do anything permitted by that license.
+If you need more permissions, contact me and I'll likely give them to you. You may use this mod in a modpack without
+asking, as long as you link to this repository or another front-end of this mod posted by me, CAD97, somewhere visible.</p>
+
+<h2>
+<a id="if-i-disappear" class="anchor" href="#if-i-disappear" aria-hidden="true"><span class="octicon octicon-link"></span></a>If I disappear</h2>
+
+<p>Don't panic. Make some activity that sends me an email. I will respond.</p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-55122224-2");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
