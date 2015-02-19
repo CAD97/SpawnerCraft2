@@ -52,7 +52,7 @@ If you also submit a pull request to fix the issue, I will thank you gratefully 
 Submit a bug report with tag `Enhancement`, and explain why you think the feature would fit into this mod. I will see it
 and consider it.
 
-## Lisense
+## License
 See LICENSE. This source is Open Source under the GNU GPL 3. As such, you may do anything permitted by that license.
 If you need more permissions, contact me and I'll likely give them to you. You may use this mod in a modpack without
 asking, as long as you link to this repository or another front-end of this mod posted by me, CAD97, somewhere visible.
