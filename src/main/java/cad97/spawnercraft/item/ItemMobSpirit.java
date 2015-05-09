@@ -6,8 +6,10 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityMobSpawner;
@@ -90,9 +92,17 @@ public class ItemMobSpirit extends ItemMobSoul
 
 				Entity entity = ItemMonsterPlacer.spawnCreature(world, stack.getMetadata(), (double)pos.getX() + 0.5D, (double)pos.getY() + spawnHeight, (double)pos.getZ() + 0.5D);
 
-				if (entity != null && entity instanceof EntityLivingBase && stack.hasDisplayName())
+				if (entity != null)
 				{
-					entity.setCustomNameTag(stack.getDisplayName());
+					if (entity instanceof EntityLivingBase && stack.hasDisplayName())
+					{
+						entity.setCustomNameTag(stack.getDisplayName());
+					}
+//					if (/*isWitherSkeleton &&*/ entity instanceof EntitySkeleton)
+//					{
+//						((EntitySkeleton) entity).setSkeletonType(1);
+//						((EntitySkeleton) entity).getEquipmentInSlot(0).setItem(Items.stone_sword);
+//					}
 				}
 				if (!player.capabilities.isCreativeMode)
 				{
