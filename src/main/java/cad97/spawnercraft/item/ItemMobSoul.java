@@ -75,7 +75,11 @@ public abstract class ItemMobSoul extends SpawnerCraftItem
 		// vanilla mobs
 		for (EntityList.EntityEggInfo entityEggInfo : (Collection<EntityList.EntityEggInfo>) EntityList.entityEggs.values())
 		{
-			subItems.add(new ItemStack(item, 1, entityEggInfo.spawnedID));
+			ItemStack stack = new ItemStack(item);
+			net.minecraft.nbt.NBTTagCompound nbt = new net.minecraft.nbt.NBTTagCompound();
+			nbt.setString("entity_name", entityEggInfo.name);
+			stack.setTagCompound(nbt);
+			subItems.add(stack);
 		}
 
 		// forge mobs
@@ -96,13 +100,13 @@ public abstract class ItemMobSoul extends SpawnerCraftItem
 	{
 		if (stack.hasTagCompound() && stack.getTagCompound().hasKey("entity_name", 8))
 			return stack.getTagCompound().getString("entity_name");
-		return EntityList.getStringFromID(stack.getMetadata());
+		else return EntityList.getStringFromID(stack.getMetadata());
 	}
 
 	protected static EntityList.EntityEggInfo getEggInfo(ItemStack stack)
 	{
 		if (stack.hasTagCompound() && stack.getTagCompound().hasKey("entity_name", 8))
 			return net.minecraftforge.fml.common.registry.EntityRegistry.getEggs().get(stack.getTagCompound().getString("entity_name"));
-		return (EntityList.EntityEggInfo)EntityList.entityEggs.get(stack.getMetadata());
+		else return (EntityList.EntityEggInfo)EntityList.entityEggs.get(stack.getMetadata());
 	}
 }
