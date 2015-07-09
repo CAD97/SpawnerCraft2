@@ -90,7 +90,7 @@ public class ItemMobSpirit extends ItemMobSoul
 					spawnHeight = 0.5;
 				}
 
-				Entity entity = ItemMonsterPlacer.spawnCreature(world, stack.getMetadata(), (double)pos.getX() + 0.5D, (double)pos.getY() + spawnHeight, (double)pos.getZ() + 0.5D);
+				Entity entity = ItemMonsterPlacer.spawnCreature(world, getEntityName(stack), (double)pos.getX() + 0.5D, (double)pos.getY() + spawnHeight, (double)pos.getZ() + 0.5D);
 
 				if (entity != null)
 				{
