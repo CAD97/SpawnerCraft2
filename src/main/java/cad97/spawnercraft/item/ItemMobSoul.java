@@ -1,5 +1,6 @@
 package cad97.spawnercraft.item;
 
+import cad97.spawnercraft.utility.LogHelper;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityList;
 import net.minecraft.item.Item;
@@ -24,8 +25,7 @@ public abstract class ItemMobSoul extends SpawnerCraftItem
 	}
 
 	/**
-	 * Gets the display name based on damage value.
-	 * (I.E. the mob it represents.)
+	 * Gets the display name based on mob data.
 	 * Works the same way as in {@link ItemMonsterPlacer}
 	 *
 	 * @param stack a stack of ItemMobSoul

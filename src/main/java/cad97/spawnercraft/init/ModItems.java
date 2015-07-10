@@ -44,12 +44,9 @@ public class ModItems
 	private static void registerTextures()
 	{
 		// register item textures
-		for (EntityList.EntityEggInfo entityEggInfo : (Collection<EntityList.EntityEggInfo>) EntityList.entityEggs.values())
-		{
-			ModelLoader.setCustomModelResourceLocation(mobEssence, entityEggInfo.spawnedID, new ModelResourceLocation("spawnercraft:mobEssence", "inventory"));
-			ModelLoader.setCustomModelResourceLocation(mobAgglomeration, entityEggInfo.spawnedID, new ModelResourceLocation("spawnercraft:mobAgglomeration", "inventory"));
-			ModelLoader.setCustomModelResourceLocation(mobSpirit, entityEggInfo.spawnedID, new ModelResourceLocation("spawnercraft:mobSpirit", "inventory"));
-		}
+		ModelLoader.setCustomModelResourceLocation(mobEssence, 0, new ModelResourceLocation("spawnercraft:mobEssence", "inventory"));
+		ModelLoader.setCustomModelResourceLocation(mobAgglomeration, 0, new ModelResourceLocation("spawnercraft:mobAgglomeration", "inventory"));
+		ModelLoader.setCustomModelResourceLocation(mobSpirit, 0, new ModelResourceLocation("spawnercraft:mobSpirit", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(mobRod, 0, new ModelResourceLocation("spawnercraft:mobRod", "inventory"));
 	}
 }

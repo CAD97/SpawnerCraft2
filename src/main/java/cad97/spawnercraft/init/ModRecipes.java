@@ -17,20 +17,31 @@ public class ModRecipes
 	public static void init()
 	{
 		for (EntityList.EntityEggInfo entityEggInfo : (Collection<EntityList.EntityEggInfo>) EntityList.entityEggs.values()) {
-			int meta = entityEggInfo.spawnedID;
+
+			net.minecraft.nbt.NBTTagCompound nbt = new net.minecraft.nbt.NBTTagCompound();
+			nbt.setString("entity_name", entityEggInfo.name);
+
+			ItemStack essenceStack = new ItemStack(ModItems.mobEssence);
+			ItemStack agglomerationStack = new ItemStack(ModItems.mobAgglomeration);
+			ItemStack spiritStack = new ItemStack(ModItems.mobSpirit);
+
+			essenceStack.setTagCompound(nbt);
+			agglomerationStack.setTagCompound(nbt);
+			spiritStack.setTagCompound(nbt);
 
 			GameRegistry.addShapedRecipe(
-					new ItemStack(ModItems.mobAgglomeration, 1, meta),
+					agglomerationStack,
 					// from
 					"EE",
 					"EE",
-					'E', new ItemStack(ModItems.mobEssence, 1, meta));
+					'E', essenceStack
+			);
 			GameRegistry.addShapedRecipe(
-					new ItemStack(ModItems.mobSpirit, 1, meta),
+					spiritStack,
 					// from
 					"AA",
 					"AA",
-					'A', new ItemStack(ModItems.mobAgglomeration, 1, meta)
+					'A', agglomerationStack
 			);
 
 			GameRegistry.addShapedRecipe(
