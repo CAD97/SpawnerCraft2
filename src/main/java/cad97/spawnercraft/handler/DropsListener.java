@@ -25,12 +25,14 @@ public class DropsListener
 		{
 			Entity entity = event.entity;
 
-			ItemStack stack = new ItemStack(ModItems.mobEssence);
-			net.minecraft.nbt.NBTTagCompound nbt = new net.minecraft.nbt.NBTTagCompound();
-			nbt.setString("entity_name", EntityList.getEntityString(entity));
-			stack.setTagCompound(nbt);
-
-			entity.entityDropItem(stack, 0.0F);
+			if (EntityList.entityEggs.containsKey(EntityList.getEntityID(entity)))
+			{
+				ItemStack stack = new ItemStack(ModItems.mobEssence);
+				net.minecraft.nbt.NBTTagCompound nbt = new net.minecraft.nbt.NBTTagCompound();
+				nbt.setString("entity_name", EntityList.getEntityString(entity));
+				stack.setTagCompound(nbt);
+				entity.entityDropItem(stack, 0.0F);
+			}
 		}
 	}
 
