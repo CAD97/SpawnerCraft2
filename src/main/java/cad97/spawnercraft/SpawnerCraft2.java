@@ -37,15 +37,14 @@ public class SpawnerCraft2
 	{
 		MinecraftForge.EVENT_BUS.register(DropsListener.instance);
 
-		ModRecipes.init();
-
 		LogHelper.info(Reference.MOD_NAME + " init finished");
 	}
 
 	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
-		//stub
+		ModRecipes.init();
+
 		LogHelper.info(Reference.MOD_NAME + " postInit finished");
 	}
 }
