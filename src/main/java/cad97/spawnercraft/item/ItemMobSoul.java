@@ -7,6 +7,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -93,20 +94,22 @@ public abstract class ItemMobSoul extends SpawnerCraftItem
 		}
 	}
 
-	// Copied from ItemMonsterPlacer because I need it but cannot use it with it being private.
-	// So much simpler than messing with ASM and changing the scope at run.
-	// Why is this a method I can't access, anyway?
+	/** These two methods are directly inspired by those in {@link ItemMonsterPlacer} */
 	protected static String getEntityName(ItemStack stack)
 	{
-		if (stack.hasTagCompound() && stack.getTagCompound().hasKey("entity_name", 8))
-			return stack.getTagCompound().getString("entity_name");
-		else return EntityList.getStringFromID(stack.getMetadata());
+		assert (stack.hasTagCompound() && stack.getTagCompound().hasKey("entity_name", 8));
+		return stack.getTagCompound().getString("entity_name");
 	}
 
+	/** These two methods are directly inspired by those in {@link ItemMonsterPlacer} */
 	protected static EntityList.EntityEggInfo getEggInfo(ItemStack stack)
 	{
-		if (stack.hasTagCompound() && stack.getTagCompound().hasKey("entity_name", 8))
-			return net.minecraftforge.fml.common.registry.EntityRegistry.getEggs().get(stack.getTagCompound().getString("entity_name"));
-		else return (EntityList.EntityEggInfo)EntityList.entityEggs.get(stack.getMetadata());
+		assert (stack.hasTagCompound() && stack.getTagCompound().hasKey("entity_name", 8));
+		EntityList.EntityEggInfo eei = EntityRegistry.getEggs().get(stack.getTagCompound().getString("entity_name"));
+		if (eei == null)
+		{
+			eei = (EntityList.EntityEggInfo) EntityList.entityEggs.get(EntityList.getIDFromString(stack.getTagCompound().getString("entity_name")));
+		}
+		return eei;
 	}
 }
