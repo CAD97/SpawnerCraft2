@@ -2,7 +2,7 @@
 	{
 		"modid":"spawnercraft",
 		"name":"SpawnerCraft",
-		"version":"2.1",
+		"version":"2.2",
 		"description":"SpawnerCraft allows a player to create their own spawners wherever they wish, while (by default) still requiring the player to find a generated spawner, therefor keeping the element of exploration and reward in vanilla, while adding the possiblility to move spawners (with a bit of work) or even obtain a non-standard spawner that is not available in a survival map normally.",
 		"mcversion":"1.8",
 		"url":"https://github.com/CAD97/SpawnerCraft2",
