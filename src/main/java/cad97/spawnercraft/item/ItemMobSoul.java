@@ -150,7 +150,13 @@ public abstract class ItemMobSoul extends SpawnerCraftItem
 
 		NBTTagCompound nbt = itemStack.getTagCompound();
 		if (nbt == null) nbt = new NBTTagCompound();
-		nbt.setString("entity_name", EntityList.getStringFromID(itemStack.getMetadata()));
+		if (EntityList.getStringFromID(itemStack.getMetadata()) == null)
+		{
+			nbt.setString("entity_name", "null");
+		} else
+		{
+			nbt.setString("entity_name", EntityList.getStringFromID(itemStack.getMetadata()));
+		}
 		itemStack.setTagCompound(nbt);
 		itemStack.setItemDamage(0);
 	}
