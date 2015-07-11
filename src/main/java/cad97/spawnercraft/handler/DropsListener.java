@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 public class DropsListener
 {
@@ -25,7 +26,8 @@ public class DropsListener
 		{
 			Entity entity = event.entity;
 
-			if (EntityList.entityEggs.containsKey(EntityList.getEntityID(entity)))
+			if (EntityList.entityEggs.containsKey(EntityList.getEntityID(entity)) || // vanilla
+					EntityRegistry.getEggs().containsKey(EntityList.getEntityString(entity))) // forge
 			{
 				ItemStack stack = new ItemStack(ModItems.mobEssence);
 				net.minecraft.nbt.NBTTagCompound nbt = new net.minecraft.nbt.NBTTagCompound();
