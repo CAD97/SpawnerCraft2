@@ -29,20 +29,16 @@ public class ModRecipes
 			agglomerationStack.setTagCompound(nbt);
 			spiritStack.setTagCompound(nbt);
 
-			GameRegistry.addShapedRecipe(
-					agglomerationStack,
-					// from
-					"EE",
-					"EE",
-					'E', essenceStack
-			);
-			GameRegistry.addShapedRecipe(
-					spiritStack,
-					// from
-					"AA",
-					"AA",
-					'A', agglomerationStack
-			);
+			GameRegistry.addRecipe(new NBTSensitiveShapedRecipe(
+					2,2,
+					new ItemStack[] {essenceStack,essenceStack,essenceStack,essenceStack},
+					agglomerationStack
+			));
+			GameRegistry.addRecipe(new NBTSensitiveShapedRecipe(
+					2,2,
+					new ItemStack[] {agglomerationStack,agglomerationStack,agglomerationStack,agglomerationStack},
+					spiritStack
+			));
 		}
 
 		GameRegistry.addShapedRecipe(
