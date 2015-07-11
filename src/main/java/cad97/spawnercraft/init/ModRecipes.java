@@ -52,18 +52,18 @@ public class ModRecipes
 					'R', Items.fishing_rod,
 					'C', ModBlocks.mobCage
 			);
+		}
 
-			if (ConfigHandler.spawnerCraftable)
-			{
-				GameRegistry.addShapedRecipe(
-						new ItemStack(ModBlocks.mobCage),
-						// from
-						"III",
-						"I I",
-						"III",
-						'I', new ItemStack(Blocks.iron_bars)
-				);
-			}
+		if (ConfigHandler.spawnerCraftable)
+		{
+			GameRegistry.addShapedRecipe(
+					new ItemStack(ModBlocks.mobCage),
+					// from
+					"III",
+					"I I",
+					"III",
+					'I', new ItemStack(Blocks.iron_bars)
+			);
 		}
 
 		LogHelper.info(Reference.MOD_NAME + " Recipes initialized");
