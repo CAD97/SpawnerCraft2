@@ -43,16 +43,16 @@ public class ModRecipes
 					"AA",
 					'A', agglomerationStack
 			);
-
-			GameRegistry.addShapedRecipe(
-					new ItemStack(ModItems.mobRod),
-					// from
-					"R",
-					"C",
-					'R', Items.fishing_rod,
-					'C', ModBlocks.mobCage
-			);
 		}
+
+		GameRegistry.addShapedRecipe(
+				new ItemStack(ModItems.mobRod),
+				// from
+				"R",
+				"C",
+				'R', Items.fishing_rod,
+				'C', ModBlocks.mobCage
+		);
 
 		if (ConfigHandler.spawnerCraftable)
 		{
