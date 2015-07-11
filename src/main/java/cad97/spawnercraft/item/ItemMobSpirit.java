@@ -61,7 +61,7 @@ public class ItemMobSpirit extends ItemMobSoul
 			{
 				world.setBlockState(pos, Blocks.mob_spawner.getDefaultState());
 				TileEntityMobSpawner tileEntity = (TileEntityMobSpawner) world.getTileEntity(pos);
-				tileEntity.getSpawnerBaseLogic().setEntityName(EntityList.getStringFromID(stack.getMetadata()));
+				tileEntity.getSpawnerBaseLogic().setEntityName(stack.getTagCompound().getString("entity_name"));
 				tileEntity.markDirty();
 				world.markBlockForUpdate(pos);
 
