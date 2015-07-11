@@ -2,12 +2,14 @@ package cad97.spawnercraft.item;
 
 import cad97.spawnercraft.reference.Reference;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -107,8 +109,7 @@ public abstract class ItemMobSoul extends SpawnerCraftItem
 	/** These two methods are directly inspired by those in {@link ItemMonsterPlacer} */
 	protected static String getEntityName(ItemStack stack)
 	{
-		assert (stack.hasTagCompound() && stack.getTagCompound().hasKey("entity_name", 8));
-		return stack.getTagCompound().getString("entity_name");
+		return getNBTSafely(stack).getString("entity_name");
 	}
 
 	/** These two methods are directly inspired by those in {@link ItemMonsterPlacer} */
@@ -125,5 +126,32 @@ public abstract class ItemMobSoul extends SpawnerCraftItem
 			eei = (EntityList.EntityEggInfo) EntityList.entityEggs.get(EntityList.getIDFromString(getEntityName(stack)));
 		}
 		return eei;
+	}
+
+	public static NBTTagCompound getNBTSafely(ItemStack stack)
+	{
+		if (!(stack.getItem() instanceof ItemMobSoul))
+			return stack.getTagCompound();
+
+		if (!stack.hasTagCompound())
+		{
+			updateItemStackFromMetadataToNBT(stack);
+		}
+		return stack.getTagCompound();
+	}
+
+	private static void updateItemStackFromMetadataToNBT(ItemStack itemStack)
+	{
+		if (!(itemStack.getItem() instanceof ItemMobSoul))
+			return;
+
+		if (itemStack.getMetadata() == 0 && itemStack.hasTagCompound() && itemStack.getTagCompound().hasKey("entity_name"))
+			return;
+
+		NBTTagCompound nbt = itemStack.getTagCompound();
+		if (nbt == null) nbt = new NBTTagCompound();
+		nbt.setString("entity_name", EntityList.getStringFromID(itemStack.getMetadata()));
+		itemStack.setTagCompound(nbt);
+		itemStack.setItemDamage(0);
 	}
 }
