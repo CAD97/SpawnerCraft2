@@ -22,7 +22,7 @@ group= "cad97.spawnercraft" // http://maven.apache.org/guides/mini/guide-naming-
 archivesBaseName = "SpawnerCraft2"
 
 minecraft {
-    version = "1.8-11.14.3.1486"
+    version = "1.8-11.14.3.1468"
     runDir = "run"
     
     // the mappings can be changed at any time, and must be in the following format.
