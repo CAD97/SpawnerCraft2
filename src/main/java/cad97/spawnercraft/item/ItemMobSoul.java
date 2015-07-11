@@ -1,11 +1,12 @@
 package cad97.spawnercraft.item;
 
-import cad97.spawnercraft.utility.LogHelper;
+import cad97.spawnercraft.reference.Reference;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityList;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -77,7 +78,7 @@ public abstract class ItemMobSoul extends SpawnerCraftItem
 		for (EntityList.EntityEggInfo entityEggInfo : (Collection<EntityList.EntityEggInfo>) EntityList.entityEggs.values())
 		{
 			ItemStack stack = new ItemStack(item);
-			net.minecraft.nbt.NBTTagCompound nbt = new net.minecraft.nbt.NBTTagCompound();
+			NBTTagCompound nbt = new NBTTagCompound();
 			nbt.setString("entity_name", entityEggInfo.name);
 			stack.setTagCompound(nbt);
 			subItems.add(stack);
@@ -87,8 +88,17 @@ public abstract class ItemMobSoul extends SpawnerCraftItem
 		for (String name : net.minecraftforge.fml.common.registry.EntityRegistry.getEggs().keySet())
 		{
 			ItemStack stack = new ItemStack(item);
-			net.minecraft.nbt.NBTTagCompound nbt = new net.minecraft.nbt.NBTTagCompound();
+			NBTTagCompound nbt = new NBTTagCompound();
 			nbt.setString("entity_name", name);
+			stack.setTagCompound(nbt);
+			subItems.add(stack);
+		}
+
+		// WitherSkeleton
+		{
+			ItemStack stack = new ItemStack(item);
+			NBTTagCompound nbt = new NBTTagCompound();
+			nbt.setString("entity_name", Reference.witherSkeletonEggInfo.name);
 			stack.setTagCompound(nbt);
 			subItems.add(stack);
 		}
@@ -105,10 +115,14 @@ public abstract class ItemMobSoul extends SpawnerCraftItem
 	protected static EntityList.EntityEggInfo getEggInfo(ItemStack stack)
 	{
 		assert (stack.hasTagCompound() && stack.getTagCompound().hasKey("entity_name", 8));
-		EntityList.EntityEggInfo eei = EntityRegistry.getEggs().get(stack.getTagCompound().getString("entity_name"));
+		if (getEntityName(stack).equals(Reference.witherSkeletonEggInfo.name))
+		{
+			return Reference.witherSkeletonEggInfo;
+		}
+		EntityList.EntityEggInfo eei = EntityRegistry.getEggs().get(getEntityName(stack));
 		if (eei == null)
 		{
-			eei = (EntityList.EntityEggInfo) EntityList.entityEggs.get(EntityList.getIDFromString(stack.getTagCompound().getString("entity_name")));
+			eei = (EntityList.EntityEggInfo) EntityList.entityEggs.get(EntityList.getIDFromString(getEntityName(stack)));
 		}
 		return eei;
 	}

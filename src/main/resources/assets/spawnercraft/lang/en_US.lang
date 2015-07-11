@@ -7,3 +7,5 @@ item.mobRod.name=Mob Fishing Pole
 tile.mobCage.name=Empty Spawner
 
 itemGroup.tabSC=SpawnerCraft
+
+entity.WitherSkeleton.name=Wither Skeleton

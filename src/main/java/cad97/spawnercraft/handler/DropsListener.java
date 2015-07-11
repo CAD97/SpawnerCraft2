@@ -2,10 +2,12 @@ package cad97.spawnercraft.handler;
 
 import cad97.spawnercraft.init.ModBlocks;
 import cad97.spawnercraft.init.ModItems;
+import cad97.spawnercraft.reference.Reference;
 import net.minecraft.block.BlockMobSpawner;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
+import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
@@ -32,6 +34,13 @@ public class DropsListener
 				ItemStack stack = new ItemStack(ModItems.mobEssence);
 				net.minecraft.nbt.NBTTagCompound nbt = new net.minecraft.nbt.NBTTagCompound();
 				nbt.setString("entity_name", EntityList.getEntityString(entity));
+
+				if (entity instanceof EntitySkeleton && ((EntitySkeleton)entity).getSkeletonType()==1)
+				{
+					// is Wither Skeleton
+					nbt.setString("entity_name", Reference.witherSkeletonEggInfo.name);
+				}
+
 				stack.setTagCompound(nbt);
 				entity.entityDropItem(stack, 0.0F);
 			}

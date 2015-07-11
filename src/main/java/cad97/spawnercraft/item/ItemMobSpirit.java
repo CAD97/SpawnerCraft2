@@ -1,6 +1,7 @@
 package cad97.spawnercraft.item;
 
 import cad97.spawnercraft.init.ModBlocks;
+import cad97.spawnercraft.reference.Reference;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -12,6 +13,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTBase;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
@@ -61,7 +64,13 @@ public class ItemMobSpirit extends ItemMobSoul
 			{
 				world.setBlockState(pos, Blocks.mob_spawner.getDefaultState());
 				TileEntityMobSpawner tileEntity = (TileEntityMobSpawner) world.getTileEntity(pos);
-				tileEntity.getSpawnerBaseLogic().setEntityName(stack.getTagCompound().getString("entity_name"));
+
+				String entityName = getEntityName(stack);
+				if (entityName.equals(Reference.witherSkeletonEggInfo.name))
+				{
+					entityName = "Skeleton";
+				}
+				tileEntity.getSpawnerBaseLogic().setEntityName(entityName);
 				tileEntity.markDirty();
 				world.markBlockForUpdate(pos);
 
@@ -83,6 +92,7 @@ public class ItemMobSpirit extends ItemMobSoul
 			{
 				// below is taken directly from ItemMonsterPlacer starting line 99
 				// just with some cleaned up naming
+				// and now an extra case for WitherSkeleton
 				pos = pos.offset(side);
 				double spawnHeight = 0;
 				if (side == EnumFacing.UP && state instanceof BlockFence)
@@ -90,7 +100,14 @@ public class ItemMobSpirit extends ItemMobSoul
 					spawnHeight = 0.5;
 				}
 
-				Entity entity = ItemMonsterPlacer.spawnCreature(world, getEntityName(stack), (double)pos.getX() + 0.5D, (double)pos.getY() + spawnHeight, (double)pos.getZ() + 0.5D);
+				String entityName = getEntityName(stack);
+				boolean isWitherSkeleton = false;
+				if (entityName.equals(Reference.witherSkeletonEggInfo.name))
+				{
+					isWitherSkeleton = true;
+					entityName = "Skeleton";
+				}
+				Entity entity = ItemMonsterPlacer.spawnCreature(world, entityName, (double)pos.getX() + 0.5D, (double)pos.getY() + spawnHeight, (double)pos.getZ() + 0.5D);
 
 				if (entity != null)
 				{
@@ -98,11 +115,11 @@ public class ItemMobSpirit extends ItemMobSoul
 					{
 						entity.setCustomNameTag(stack.getDisplayName());
 					}
-//					if (/*isWitherSkeleton &&*/ entity instanceof EntitySkeleton)
-//					{
-//						((EntitySkeleton) entity).setSkeletonType(1);
-//						((EntitySkeleton) entity).getEquipmentInSlot(0).setItem(Items.stone_sword);
-//					}
+					if (isWitherSkeleton && entity instanceof EntitySkeleton)
+					{
+						((EntitySkeleton) entity).setSkeletonType(1);
+						((EntitySkeleton) entity).getEquipmentInSlot(0).setItem(Items.stone_sword);
+					}
 				}
 				if (!player.capabilities.isCreativeMode)
 				{

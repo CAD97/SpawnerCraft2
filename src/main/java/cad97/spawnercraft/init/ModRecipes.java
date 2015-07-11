@@ -7,6 +7,7 @@ import net.minecraft.entity.EntityList;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import java.util.Collection;
@@ -17,29 +18,13 @@ public class ModRecipes
 	public static void init()
 	{
 		for (EntityList.EntityEggInfo entityEggInfo : (Collection<EntityList.EntityEggInfo>) EntityList.entityEggs.values()) {
-
-			net.minecraft.nbt.NBTTagCompound nbt = new net.minecraft.nbt.NBTTagCompound();
-			nbt.setString("entity_name", entityEggInfo.name);
-
-			ItemStack essenceStack = new ItemStack(ModItems.mobEssence);
-			ItemStack agglomerationStack = new ItemStack(ModItems.mobAgglomeration);
-			ItemStack spiritStack = new ItemStack(ModItems.mobSpirit);
-
-			essenceStack.setTagCompound(nbt);
-			agglomerationStack.setTagCompound(nbt);
-			spiritStack.setTagCompound(nbt);
-
-			GameRegistry.addRecipe(new NBTSensitiveShapedRecipe(
-					2,2,
-					new ItemStack[] {essenceStack,essenceStack,essenceStack,essenceStack},
-					agglomerationStack
-			));
-			GameRegistry.addRecipe(new NBTSensitiveShapedRecipe(
-					2,2,
-					new ItemStack[] {agglomerationStack,agglomerationStack,agglomerationStack,agglomerationStack},
-					spiritStack
-			));
+			registerEggCrafting(entityEggInfo);
 		}
+		for (EntityList.EntityEggInfo entityEggInfo : EntityRegistry.getEggs().values())
+		{
+			registerEggCrafting(entityEggInfo);
+		}
+		registerEggCrafting(Reference.witherSkeletonEggInfo);
 
 		GameRegistry.addShapedRecipe(
 				new ItemStack(ModItems.mobRod),
@@ -63,5 +48,30 @@ public class ModRecipes
 		}
 
 		LogHelper.info(Reference.MOD_NAME + " Recipes initialized");
+	}
+
+	private static void registerEggCrafting(EntityList.EntityEggInfo entityEggInfo)
+	{
+		net.minecraft.nbt.NBTTagCompound nbt = new net.minecraft.nbt.NBTTagCompound();
+		nbt.setString("entity_name", entityEggInfo.name);
+
+		ItemStack essenceStack = new ItemStack(ModItems.mobEssence);
+		ItemStack agglomerationStack = new ItemStack(ModItems.mobAgglomeration);
+		ItemStack spiritStack = new ItemStack(ModItems.mobSpirit);
+
+		essenceStack.setTagCompound(nbt);
+		agglomerationStack.setTagCompound(nbt);
+		spiritStack.setTagCompound(nbt);
+
+		GameRegistry.addRecipe(new NBTSensitiveShapedRecipe(
+				2,2,
+				new ItemStack[] {essenceStack,essenceStack,essenceStack,essenceStack},
+				agglomerationStack
+		));
+		GameRegistry.addRecipe(new NBTSensitiveShapedRecipe(
+				2,2,
+				new ItemStack[] {agglomerationStack,agglomerationStack,agglomerationStack,agglomerationStack},
+				spiritStack
+		));
 	}
 }
