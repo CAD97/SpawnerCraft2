@@ -4,12 +4,10 @@ import cad97.spawnercraft.block.BlockMobCage;
 import cad97.spawnercraft.reference.Reference;
 import cad97.spawnercraft.utility.LogHelper;
 import net.minecraft.block.Block;
-import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
-import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class ModBlocks
 {
@@ -30,6 +28,6 @@ public class ModBlocks
 	@SideOnly(Side.CLIENT)
 	private static void registerTextures()
 	{
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(mobCage), 0, new ModelResourceLocation("minecraft:mob_spawner", "inventory"));
+		mobCage.setTextureName("minecraft:mob_spawner");
 	}
 }

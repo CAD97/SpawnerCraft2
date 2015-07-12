@@ -6,8 +6,8 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemMobRod extends SpawnerCraftItem
 {
@@ -15,7 +15,7 @@ public class ItemMobRod extends SpawnerCraftItem
 	{
 		super();
 		setUnlocalizedName("mobRod");
-		setMaxDamage(1024);
+		setMaxDurability(1024);
 		setMaxStackSize(1);
 	}
 

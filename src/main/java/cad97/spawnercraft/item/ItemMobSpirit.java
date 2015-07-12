@@ -2,10 +2,11 @@ package cad97.spawnercraft.item;
 
 import cad97.spawnercraft.init.ModBlocks;
 import cad97.spawnercraft.reference.Reference;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,8 +17,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntityMobSpawner;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Facing;
 import net.minecraft.world.World;
 
 public class ItemMobSpirit extends ItemMobSoul
@@ -29,50 +30,32 @@ public class ItemMobSpirit extends ItemMobSoul
 	}
 
 	/**
-	 * code ~~stolen~~ inspired from ItemMonsterPlacer.class
+	 * code ~~stolen~~ edited from ItemMonsterPlacer.class
 	 * as my onClick should mimic ItemMonsterPlacer pretty closely
 	 * differing only on what block is turned into a proper spawner.
-	 *
-	 * @param stack ItemStack being clicked with
-	 * @param player Player doing clicking
-	 * @param world World player is in
-	 * @param pos The block being right-clicked
-	 * @param side The side being right-clicked
-	 * @param hitX Where the item is clicked on, X
-	 * @param hitY Where the item is clicked on, Y
-	 * @param hitZ Where the item is clicked on, Z
-	 * @return true if used, false otherwise
 	 */
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ)
+	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int facing, float p_77648_8_, float p_77648_9_, float p_77648_10_)
 	{
 		if (world.isRemote)
 		{
 			return true;
-			// World is remote, do not handle item use
-			// return true because client should believe item can be used anywhere
-		}
-		else if (!player.canPlayerEdit(pos.offset(side), side, stack))
-		{
-			return false;
-			// Player is not allowed to edit here
-			// return false to cancel action
 		}
 		else
 		{
-			IBlockState state = world.getBlockState(pos);
-			if (state.getBlock() == ModBlocks.mobCage)
+			Block block = world.getBlock(x, y, z);
+			if (block == ModBlocks.mobCage)
 			{
-				world.setBlockState(pos, Blocks.mob_spawner.getDefaultState());
-				TileEntityMobSpawner tileEntity = (TileEntityMobSpawner) world.getTileEntity(pos);
+				world.setBlock(x, y, z, Blocks.mob_spawner);
+				TileEntityMobSpawner tileEntity = (TileEntityMobSpawner) world.getTileEntity(x, y, z);
 
 				String entityName = getEntityName(stack);
-				if (entityName.equals(Reference.witherSkeletonEggInfo.name))
-				{
-					entityName = "Skeleton";
-				}
-				tileEntity.getSpawnerBaseLogic().setEntityName(entityName);
+//				if (entityName.equals(Reference.witherSkeletonEggInfo.name))
+//				{
+//					entityName = "Skeleton";
+//				}
+				tileEntity.func_145881_a().setEntityName(entityName); // func_145881_a == getSpawnerBaseLogic
 				tileEntity.markDirty();
-				world.markBlockForUpdate(pos);
+				world.markBlockForUpdate(x, y, z);
 
 				if (!player.capabilities.isCreativeMode)
 				{
@@ -80,50 +63,30 @@ public class ItemMobSpirit extends ItemMobSoul
 				}
 
 				return true;
-			}
-			else if (state.getBlock() == Blocks.mob_spawner)
+			} else if (block == Blocks.mob_spawner)
 			{
 				return false;
-				// do nothing
-				// prevent misuse of Spirit trying to change an active spawner
-				// usage may be mistaken as we are stealing mob_egg's texture and functionality except that
-			}
-			else
+			} else
 			{
-				// below is taken directly from ItemMonsterPlacer starting line 99
-				// just with some cleaned up naming
-				// and now an extra case for WitherSkeleton
-				pos = pos.offset(side);
-				double spawnHeight = 0;
-				if (side == EnumFacing.UP && state instanceof BlockFence)
-				{
-					spawnHeight = 0.5;
+				x += Facing.offsetsXForSide[facing];
+				y += Facing.offsetsYForSide[facing];
+				z += Facing.offsetsZForSide[facing];
+				double d0 = 0.0D;
+
+				if (facing == 1 && block.getRenderType() == 11) {
+					d0 = 0.5D;
 				}
 
-				String entityName = getEntityName(stack);
-				boolean isWitherSkeleton = false;
-				if (entityName.equals(Reference.witherSkeletonEggInfo.name))
-				{
-					isWitherSkeleton = true;
-					entityName = "Skeleton";
-				}
-				Entity entity = ItemMonsterPlacer.spawnCreature(world, entityName, (double)pos.getX() + 0.5D, (double)pos.getY() + spawnHeight, (double)pos.getZ() + 0.5D);
+				Entity entity = ItemMonsterPlacer.spawnCreature(world, stack.getMetadata(), (double) x + 0.5D, (double) y + d0, (double) z + 0.5D);
 
-				if (entity != null)
-				{
-					if (entity instanceof EntityLivingBase && stack.hasDisplayName())
-					{
-						entity.setCustomNameTag(stack.getDisplayName());
+				if (entity != null) {
+					if (entity instanceof EntityLivingBase && stack.hasDisplayName()) {
+						((EntityLiving) entity).setCustomNameTag(stack.getDisplayName());
 					}
-					if (isWitherSkeleton && entity instanceof EntitySkeleton)
-					{
-						((EntitySkeleton) entity).setSkeletonType(1);
-						((EntitySkeleton) entity).getEquipmentInSlot(0).setItem(Items.stone_sword);
+
+					if (!player.capabilities.isCreativeMode) {
+						--stack.stackSize;
 					}
-				}
-				if (!player.capabilities.isCreativeMode)
-				{
-					--stack.stackSize;
 				}
 
 				return true;

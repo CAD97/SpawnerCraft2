@@ -7,8 +7,8 @@ import net.minecraft.entity.EntityList;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 import java.util.Collection;
 
@@ -20,11 +20,13 @@ public class ModRecipes
 		for (EntityList.EntityEggInfo entityEggInfo : (Collection<EntityList.EntityEggInfo>) EntityList.entityEggs.values()) {
 			registerEggCrafting(entityEggInfo);
 		}
-		for (EntityList.EntityEggInfo entityEggInfo : EntityRegistry.getEggs().values())
-		{
-			registerEggCrafting(entityEggInfo);
-		}
-		registerEggCrafting(Reference.witherSkeletonEggInfo);
+
+		// TODO custom entities in 1.7?
+//		for (EntityList.EntityEggInfo entityEggInfo : EntityRegistry.getEggs().values())
+//		{
+//			registerEggCrafting(entityEggInfo);
+//		}
+//		registerEggCrafting(Reference.witherSkeletonEggInfo);
 
 		GameRegistry.addShapedRecipe(
 				new ItemStack(ModItems.mobRod),
@@ -53,7 +55,7 @@ public class ModRecipes
 	private static void registerEggCrafting(EntityList.EntityEggInfo entityEggInfo)
 	{
 		net.minecraft.nbt.NBTTagCompound nbt = new net.minecraft.nbt.NBTTagCompound();
-		nbt.setString("entity_name", entityEggInfo.name);
+		nbt.setString("entity_name", EntityList.getStringFromID(entityEggInfo.spawnedID));
 
 		ItemStack essenceStack = new ItemStack(ModItems.mobEssence);
 		ItemStack agglomerationStack = new ItemStack(ModItems.mobAgglomeration);

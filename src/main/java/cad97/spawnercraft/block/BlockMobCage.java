@@ -1,9 +1,6 @@
 package cad97.spawnercraft.block;
 
 import net.minecraft.block.material.Material;
-import net.minecraft.util.EnumWorldBlockLayer;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockMobCage extends SpawnerCraftBlock
 {
@@ -26,11 +23,4 @@ public class BlockMobCage extends SpawnerCraftBlock
 	{
 		return false;
 	}
-
-	@SideOnly(Side.CLIENT)
-	public EnumWorldBlockLayer getBlockLayer()
-	{
-		return EnumWorldBlockLayer.CUTOUT;
-	}
-	// as for BlockMobSpawner
 }

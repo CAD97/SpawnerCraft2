@@ -1,7 +1,7 @@
 package cad97.spawnercraft.utility;
 
 import cad97.spawnercraft.reference.Reference;
-import net.minecraftforge.fml.common.FMLLog;
+import cpw.mods.fml.common.FMLLog;
 import org.apache.logging.log4j.Level;
 
 

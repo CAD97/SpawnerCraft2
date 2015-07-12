@@ -6,14 +6,12 @@ import cad97.spawnercraft.item.ItemMobRod;
 import cad97.spawnercraft.item.ItemMobSpirit;
 import cad97.spawnercraft.reference.Reference;
 import cad97.spawnercraft.utility.LogHelper;
-import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.entity.EntityList;
 import net.minecraft.item.Item;
-import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 import java.util.Collection;
 
@@ -45,9 +43,9 @@ public class ModItems
 	private static void registerTextures()
 	{
 		// register item textures
-		ModelLoader.setCustomModelResourceLocation(mobEssence, 0, new ModelResourceLocation("spawnercraft:mobEssence", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(mobAgglomeration, 0, new ModelResourceLocation("spawnercraft:mobAgglomeration", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(mobSpirit, 0, new ModelResourceLocation("spawnercraft:mobSpirit", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(mobRod, 0, new ModelResourceLocation("spawnercraft:mobRod", "inventory"));
+		mobEssence.setTextureName("spawnercraft:mobEssence");
+		mobAgglomeration.setTextureName("spawnercraft:mobAgglomeration");
+		mobSpirit.setTextureName("spawnercraft:mobSpirit");
+		mobRod.setTextureName("spawnercraft:mobRod");
 	}
 }

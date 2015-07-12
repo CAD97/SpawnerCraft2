@@ -10,9 +10,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 import java.util.Collection;
 import java.util.List;
@@ -81,29 +81,31 @@ public abstract class ItemMobSoul extends SpawnerCraftItem
 		{
 			ItemStack stack = new ItemStack(item);
 			NBTTagCompound nbt = new NBTTagCompound();
-			nbt.setString("entity_name", entityEggInfo.name);
+			nbt.setString("entity_name", EntityList.getStringFromID(entityEggInfo.spawnedID));
 			stack.setTagCompound(nbt);
 			subItems.add(stack);
 		}
 
+		// TODO apparently the EntityRegistry change is not back in 1.7. Guess I'll just have to live with whatever
 		// forge mobs
-		for (String name : net.minecraftforge.fml.common.registry.EntityRegistry.getEggs().keySet())
-		{
-			ItemStack stack = new ItemStack(item);
-			NBTTagCompound nbt = new NBTTagCompound();
-			nbt.setString("entity_name", name);
-			stack.setTagCompound(nbt);
-			subItems.add(stack);
-		}
+//		for (String name : cpw.mods.fml.common.registry.EntityRegistry.getEggs().keySet())
+//		{
+//			ItemStack stack = new ItemStack(item);
+//			NBTTagCompound nbt = new NBTTagCompound();
+//			nbt.setString("entity_name", name);
+//			stack.setTagCompound(nbt);
+//			subItems.add(stack);
+//		}
 
+		// TODO as stated in {@link Reference} the EggInfo for the WitherSkeleton would need a rework
 		// WitherSkeleton
-		{
-			ItemStack stack = new ItemStack(item);
-			NBTTagCompound nbt = new NBTTagCompound();
-			nbt.setString("entity_name", Reference.witherSkeletonEggInfo.name);
-			stack.setTagCompound(nbt);
-			subItems.add(stack);
-		}
+//		{
+//			ItemStack stack = new ItemStack(item);
+//			NBTTagCompound nbt = new NBTTagCompound();
+//			nbt.setString("entity_name", Reference.witherSkeletonEggInfo.name);
+//			stack.setTagCompound(nbt);
+//			subItems.add(stack);
+//		}
 	}
 
 	/** These two methods are directly inspired by those in {@link ItemMonsterPlacer} */
@@ -116,16 +118,20 @@ public abstract class ItemMobSoul extends SpawnerCraftItem
 	protected static EntityList.EntityEggInfo getEggInfo(ItemStack stack)
 	{
 		assert (stack.hasTagCompound() && stack.getTagCompound().hasKey("entity_name", 8));
-		if (getEntityName(stack).equals(Reference.witherSkeletonEggInfo.name))
-		{
-			return Reference.witherSkeletonEggInfo;
-		}
-		EntityList.EntityEggInfo eei = EntityRegistry.getEggs().get(getEntityName(stack));
-		if (eei == null)
-		{
-			eei = (EntityList.EntityEggInfo) EntityList.entityEggs.get(EntityList.getIDFromString(getEntityName(stack)));
-		}
-		return eei;
+//		if (getEntityName(stack).equals(Reference.witherSkeletonEggInfo.name))
+//		{
+//			return Reference.witherSkeletonEggInfo;
+//		}
+
+		// TODO IMPORTANT create a getIDFromString for 1.7 use
+//		EntityList.EntityEggInfo eei = EntityRegistry.getEggs().get(getEntityName(stack));
+//		if (eei == null)
+//		{
+//			eei = (EntityList.EntityEggInfo) EntityList.entityEggs.get(EntityList.getIDFromString(getEntityName(stack)));
+//		}
+//		return eei;
+
+		return null;
 	}
 
 	public static NBTTagCompound getNBTSafely(ItemStack stack)
@@ -158,6 +164,6 @@ public abstract class ItemMobSoul extends SpawnerCraftItem
 			nbt.setString("entity_name", EntityList.getStringFromID(itemStack.getMetadata()));
 		}
 		itemStack.setTagCompound(nbt);
-		itemStack.setItemDamage(0);
+		itemStack.setMetadata(0);
 	}
 }

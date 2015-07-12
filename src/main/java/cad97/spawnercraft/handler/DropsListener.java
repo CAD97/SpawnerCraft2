@@ -12,8 +12,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.world.BlockEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.registry.EntityRegistry;
 
 public class DropsListener
 {
@@ -28,18 +28,19 @@ public class DropsListener
 		{
 			Entity entity = event.entity;
 
-			if (EntityList.entityEggs.containsKey(EntityList.getEntityID(entity)) || // vanilla
-					EntityRegistry.getEggs().containsKey(EntityList.getEntityString(entity))) // forge
+			if (EntityList.entityEggs.containsKey(EntityList.getEntityID(entity)) // vanilla
+//					|| EntityRegistry.getEggs().containsKey(EntityList.getEntityString(entity)) // forge
+					)
 			{
 				ItemStack stack = new ItemStack(ModItems.mobEssence);
 				net.minecraft.nbt.NBTTagCompound nbt = new net.minecraft.nbt.NBTTagCompound();
 				nbt.setString("entity_name", EntityList.getEntityString(entity));
 
-				if (entity instanceof EntitySkeleton && ((EntitySkeleton)entity).getSkeletonType()==1)
-				{
-					// is Wither Skeleton
-					nbt.setString("entity_name", Reference.witherSkeletonEggInfo.name);
-				}
+//				if (entity instanceof EntitySkeleton && ((EntitySkeleton)entity).getSkeletonType()==1)
+//				{
+//					// is Wither Skeleton
+//					nbt.setString("entity_name", Reference.witherSkeletonEggInfo.name);
+//				}
 
 				stack.setTagCompound(nbt);
 				entity.entityDropItem(stack, 0.0F);
@@ -50,7 +51,7 @@ public class DropsListener
 	@SubscribeEvent
 	public void onBlockDrops(BlockEvent.HarvestDropsEvent event)
 	{
-		if (event.state.getBlock() instanceof BlockMobSpawner)
+		if (event.block instanceof BlockMobSpawner)
 		{
 			if (ConfigHandler.spawnerDropRequireSilk)
 			{
