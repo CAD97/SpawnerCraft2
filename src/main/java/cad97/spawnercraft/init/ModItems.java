@@ -45,7 +45,7 @@ public class ModItems
 		// register item textures
 		mobEssence.setTextureName("spawnercraft:mobEssence");
 		mobAgglomeration.setTextureName("spawnercraft:mobAgglomeration");
-		mobSpirit.setTextureName("spawnercraft:mobSpirit");
+		mobSpirit.setTextureName("minecraft:spawn_egg");
 		mobRod.setTextureName("spawnercraft:mobRod");
 	}
 }

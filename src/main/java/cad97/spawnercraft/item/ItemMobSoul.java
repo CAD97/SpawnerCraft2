@@ -1,6 +1,7 @@
 package cad97.spawnercraft.item;
 
 import cad97.spawnercraft.reference.Reference;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -8,6 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import cpw.mods.fml.common.registry.EntityRegistry;
@@ -19,6 +21,7 @@ import java.util.List;
 
 public abstract class ItemMobSoul extends SpawnerCraftItem
 {
+	private IIcon overlayIcon;
 	// base for mobEssence, mobAgglomeration, and mobSpirit
 
 	public ItemMobSoul()
@@ -123,15 +126,70 @@ public abstract class ItemMobSoul extends SpawnerCraftItem
 //			return Reference.witherSkeletonEggInfo;
 //		}
 
-		// TODO IMPORTANT create a getIDFromString for 1.7 use
-//		EntityList.EntityEggInfo eei = EntityRegistry.getEggs().get(getEntityName(stack));
-//		if (eei == null)
-//		{
-//			eei = (EntityList.EntityEggInfo) EntityList.entityEggs.get(EntityList.getIDFromString(getEntityName(stack)));
-//		}
-//		return eei;
+		return (EntityList.EntityEggInfo) EntityList.entityEggs.get(getIDFromString(getEntityName(stack)));
+	}
 
-		return null;
+	// This sad panda had to copy the mapping from {@link EntityList} because 1.7 doesn't have a method for ID -> String
+	private static int getIDFromString(String entityName)
+	{
+		if (entityName.equals("Item")) return 1;
+		if (entityName.equals("XPOrb")) return 2;
+		if (entityName.equals("LeashKnot")) return 8;
+		if (entityName.equals("Painting")) return 9;
+		if (entityName.equals("Arrow")) return 10;
+		if (entityName.equals("Snowball")) return 11;
+		if (entityName.equals("Fireball")) return 12;
+		if (entityName.equals("SmallFireball")) return 13;
+		if (entityName.equals("ThrownEnderpearl")) return 14;
+		if (entityName.equals("EyeOfEnderSignal")) return 15;
+		if (entityName.equals("ThrownPotion")) return 16;
+		if (entityName.equals("ThrownExpBottle")) return 17;
+		if (entityName.equals("ItemFrame")) return 18;
+		if (entityName.equals("WitherSkull")) return 19;
+		if (entityName.equals("PrimedTnt")) return 20;
+		if (entityName.equals("FallingSand")) return 21;
+		if (entityName.equals("FireworksRocketEntity")) return 22;
+		if (entityName.equals("Boat")) return 41;
+		if (entityName.equals("MinecartRideable")) return 42;
+		if (entityName.equals("MinecartChest")) return 43;
+		if (entityName.equals("MinecartFurnace")) return 44;
+		if (entityName.equals("MinecartTNT")) return 45;
+		if (entityName.equals("MinecartHopper")) return 46;
+		if (entityName.equals("MinecartSpawner")) return 47;
+		if (entityName.equals("MinecartCommandBlock")) return 40;
+		if (entityName.equals("Mob")) return 48;
+		if (entityName.equals("Monster")) return 49;
+		if (entityName.equals("Creeper")) return 50;
+		if (entityName.equals("Skeleton")) return 51;
+		if (entityName.equals("Spider")) return 52;
+		if (entityName.equals("Giant")) return 53;
+		if (entityName.equals("Zombie")) return 54;
+		if (entityName.equals("Slime")) return 55;
+		if (entityName.equals("Ghast")) return 56;
+		if (entityName.equals("PigZombie")) return 57;
+		if (entityName.equals("Enderman")) return 58;
+		if (entityName.equals("CaveSpider")) return 59;
+		if (entityName.equals("Silverfish")) return 60;
+		if (entityName.equals("Blaze")) return 61;
+		if (entityName.equals("LavaSlime")) return 62;
+		if (entityName.equals("EnderDragon")) return 63;
+		if (entityName.equals("WitherBoss")) return 64;
+		if (entityName.equals("Bat")) return 65;
+		if (entityName.equals("Witch")) return 66;
+		if (entityName.equals("Pig")) return 90;
+		if (entityName.equals("Sheep")) return 91;
+		if (entityName.equals("Cow")) return 92;
+		if (entityName.equals("Chicken")) return 93;
+		if (entityName.equals("Squid")) return 94;
+		if (entityName.equals("Wolf")) return 95;
+		if (entityName.equals("MushroomCow")) return 96;
+		if (entityName.equals("SnowMan")) return 97;
+		if (entityName.equals("Ozelot")) return 98;
+		if (entityName.equals("VillagerGolem")) return 99;
+		if (entityName.equals("EntityHorse")) return 100;
+		if (entityName.equals("Villager")) return 120;
+		if (entityName.equals("EnderCrystal")) return 200;
+		return 0;
 	}
 
 	public static NBTTagCompound getNBTSafely(ItemStack stack)
@@ -165,5 +223,28 @@ public abstract class ItemMobSoul extends SpawnerCraftItem
 		}
 		itemStack.setTagCompound(nbt);
 		itemStack.setMetadata(0);
+	}
+
+	@SideOnly(Side.CLIENT)
+	public boolean requiresMultipleRenderPasses()
+	{
+		return true;
+	}
+
+	/**
+	 * Gets an icon index based on an item's damage value and the given render pass
+	 */
+	@SideOnly(Side.CLIENT)
+	public IIcon getIconFromDamageForRenderPass(int p_77618_1_, int p_77618_2_)
+	{
+		return p_77618_2_ > 0 ? this.overlayIcon : super.getIconFromDamageForRenderPass(p_77618_1_, p_77618_2_);
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IIconRegister register)
+	{
+		super.registerIcons(register);
+		this.overlayIcon = register.registerIcon(this.getIconString() + "_overlay");
 	}
 }
