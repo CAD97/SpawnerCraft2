@@ -130,7 +130,7 @@ public abstract class ItemMobSoul extends SpawnerCraftItem
 	}
 
 	// This sad panda had to copy the mapping from {@link EntityList} because 1.7 doesn't have a method for ID -> String
-	private static int getIDFromString(String entityName)
+	protected static int getIDFromString(String entityName)
 	{
 		if (entityName.equals("Item")) return 1;
 		if (entityName.equals("XPOrb")) return 2;

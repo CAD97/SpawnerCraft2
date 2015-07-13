@@ -34,7 +34,7 @@ public class ItemMobSpirit extends ItemMobSoul
 	 * as my onClick should mimic ItemMonsterPlacer pretty closely
 	 * differing only on what block is turned into a proper spawner.
 	 */
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int facing, float p_77648_8_, float p_77648_9_, float p_77648_10_)
+	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int facing, float hitX, float hitY, float hitZ)
 	{
 		if (world.isRemote)
 		{
@@ -77,7 +77,7 @@ public class ItemMobSpirit extends ItemMobSoul
 					d0 = 0.5D;
 				}
 
-				Entity entity = ItemMonsterPlacer.spawnCreature(world, stack.getMetadata(), (double) x + 0.5D, (double) y + d0, (double) z + 0.5D);
+				Entity entity = ItemMonsterPlacer.spawnCreature(world, getIDFromString(getEntityName(stack)), (double) x + 0.5D, (double) y + d0, (double) z + 0.5D);
 
 				if (entity != null) {
 					if (entity instanceof EntityLivingBase && stack.hasDisplayName()) {
