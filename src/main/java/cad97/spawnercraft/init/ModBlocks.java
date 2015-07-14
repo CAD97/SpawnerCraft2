@@ -30,6 +30,6 @@ public class ModBlocks
 	@SideOnly(Side.CLIENT)
 	private static void registerTextures()
 	{
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(mobCage), 0, new ModelResourceLocation("minecraft:mob_spawner", "inventory"));
+		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(mobCage), 0, new ModelResourceLocation("spawnercraft:mobCage", "inventory"));
 	}
 }
