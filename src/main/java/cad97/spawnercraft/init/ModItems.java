@@ -1,21 +1,17 @@
 package cad97.spawnercraft.init;
 
-import cad97.spawnercraft.item.ItemMobEssence;
 import cad97.spawnercraft.item.ItemMobAgglomeration;
+import cad97.spawnercraft.item.ItemMobEssence;
 import cad97.spawnercraft.item.ItemMobRod;
 import cad97.spawnercraft.item.ItemMobSpirit;
 import cad97.spawnercraft.reference.Reference;
 import cad97.spawnercraft.utility.LogHelper;
 import net.minecraft.client.resources.model.ModelResourceLocation;
-import net.minecraft.entity.EntityList;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.util.Collection;
 
 public class ModItems
 {

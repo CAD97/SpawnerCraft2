@@ -1,8 +1,6 @@
 package cad97.spawnercraft.reference;
 
 import net.minecraft.entity.EntityList;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 
