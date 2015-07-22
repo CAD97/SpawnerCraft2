@@ -30,5 +30,5 @@ public class Reference
 		spawnData.setTag("Equipment", equipment);                   //     ]
 		witherSkeletonSpawnerNBT.setTag("SpawnData", spawnData);    //   }
 		System.out.println(witherSkeletonSpawnerNBT.toString());    // }
-	}
+	} // initialize NBT
 }
