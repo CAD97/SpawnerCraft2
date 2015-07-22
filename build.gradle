@@ -17,7 +17,7 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.8-2.2.2"
+version = "1.8-2.2.3"
 group= "cad97.spawnercraft" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "SpawnerCraft2"
 
