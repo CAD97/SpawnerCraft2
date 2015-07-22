@@ -23,7 +23,9 @@ public class DropsListener
 	public void onMobDrops(LivingDropsEvent event)
 	{
 		if (event.source.getSourceOfDamage() instanceof EntityPlayer &&
-				(!ConfigHandler.requireMobFishing || ((EntityPlayer) event.source.getSourceOfDamage()).getCurrentEquippedItem().getItem() == ModItems.mobRod)
+				(!ConfigHandler.requireMobFishing ||
+						((EntityPlayer) event.source.getSourceOfDamage()).getCurrentEquippedItem() != null &&
+						((EntityPlayer) event.source.getSourceOfDamage()).getCurrentEquippedItem().getItem() == ModItems.mobRod)
 				)
 		{
 			Entity entity = event.entity;
