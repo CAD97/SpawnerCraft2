@@ -12,6 +12,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
@@ -65,9 +66,14 @@ public class ItemMobSpirit extends ItemMobSoul
 				String entityName = getEntityName(stack);
 				if (entityName.equals(Reference.witherSkeletonEggInfo.name))
 				{
-					entityName = "Skeleton";
+					NBTTagCompound nbt = new NBTTagCompound();
+					tileEntity.getSpawnerBaseLogic().writeToNBT(new NBTTagCompound());
+					nbt.merge(Reference.witherSkeletonSpawnerNBT);
+					tileEntity.getSpawnerBaseLogic().readFromNBT(nbt);
+				} else
+				{
+					tileEntity.getSpawnerBaseLogic().setEntityName(entityName);
 				}
-				tileEntity.getSpawnerBaseLogic().setEntityName(entityName);
 				tileEntity.markDirty();
 				world.markBlockForUpdate(pos);
 
