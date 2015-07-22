@@ -1,23 +1,15 @@
 package cad97.spawnercraft.item;
 
 import cad97.spawnercraft.init.ModBlocks;
-import cad97.spawnercraft.reference.Reference;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFence;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTBase;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntityMobSpawner;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Facing;
 import net.minecraft.world.World;
 

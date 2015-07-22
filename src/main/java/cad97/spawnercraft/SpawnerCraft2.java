@@ -7,12 +7,12 @@ import cad97.spawnercraft.init.ModItems;
 import cad97.spawnercraft.init.ModRecipes;
 import cad97.spawnercraft.reference.Reference;
 import cad97.spawnercraft.utility.LogHelper;
-import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.common.MinecraftForge;
 
 @Mod(modid=Reference.MOD_ID, name=Reference.MOD_NAME, version=Reference.VERSION, guiFactory = Reference.GUI_FACTORY_CLASS)
 public class SpawnerCraft2

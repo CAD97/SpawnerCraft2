@@ -2,18 +2,15 @@ package cad97.spawnercraft.handler;
 
 import cad97.spawnercraft.init.ModBlocks;
 import cad97.spawnercraft.init.ModItems;
-import cad97.spawnercraft.reference.Reference;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.block.BlockMobSpawner;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
-import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.world.BlockEvent;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.registry.EntityRegistry;
 
 public class DropsListener
 {

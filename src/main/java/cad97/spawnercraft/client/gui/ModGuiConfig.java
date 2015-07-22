@@ -2,9 +2,9 @@ package cad97.spawnercraft.client.gui;
 
 import cad97.spawnercraft.handler.ConfigHandler;
 import cad97.spawnercraft.reference.Reference;
+import cpw.mods.fml.client.config.GuiConfig;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;
-import cpw.mods.fml.client.config.GuiConfig;
 
 public class ModGuiConfig extends GuiConfig
 {

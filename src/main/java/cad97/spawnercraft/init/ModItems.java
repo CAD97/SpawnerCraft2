@@ -1,19 +1,15 @@
 package cad97.spawnercraft.init;
 
-import cad97.spawnercraft.item.ItemMobEssence;
 import cad97.spawnercraft.item.ItemMobAgglomeration;
+import cad97.spawnercraft.item.ItemMobEssence;
 import cad97.spawnercraft.item.ItemMobRod;
 import cad97.spawnercraft.item.ItemMobSpirit;
 import cad97.spawnercraft.reference.Reference;
 import cad97.spawnercraft.utility.LogHelper;
-import net.minecraft.entity.EntityList;
-import net.minecraft.item.Item;
-import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-
-import java.util.Collection;
+import net.minecraft.item.Item;
 
 public class ModItems
 {

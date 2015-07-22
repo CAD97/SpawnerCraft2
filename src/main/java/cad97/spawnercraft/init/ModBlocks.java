@@ -3,11 +3,10 @@ package cad97.spawnercraft.init;
 import cad97.spawnercraft.block.BlockMobCage;
 import cad97.spawnercraft.reference.Reference;
 import cad97.spawnercraft.utility.LogHelper;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
 
 public class ModBlocks
 {

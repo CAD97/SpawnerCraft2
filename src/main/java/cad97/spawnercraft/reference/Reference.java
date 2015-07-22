@@ -1,8 +1,5 @@
 package cad97.spawnercraft.reference;
 
-import cpw.mods.fml.common.registry.EntityRegistry;
-import net.minecraft.entity.EntityList;
-
 public class Reference
 {
 	public static final String MOD_ID = "spawnercraft";
