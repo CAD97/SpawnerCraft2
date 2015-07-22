@@ -29,11 +29,13 @@ A. Option A (GitHub)
   2. Download the version that you want
   3. Drop into the mods folder of your local Forge installation
   4. Enjoy!
+
 B. Option B (CurseForge)
   1. Go to this mod's page on [Minecraft Curseforge](http://minecraft.curseforge.com/mc-mods/221268-spawnercraft)
   2. Download the version that you want
   3. Drop into the mods folder of your local Forge installation
   4. Enjoy!
+
 Downloading from CurseForge will more likely get you a nice working version than here where I feel free to upload whatever compiles.
 
 ## Naming Conventions
