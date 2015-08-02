@@ -56,7 +56,7 @@ public class DropsListener
 		{
 			if (ConfigHandler.spawnerDropRequireSilk)
 			{
-				if (EnchantmentHelper.getSilkTouchModifier(event.harvester))
+				if (event.harvester != null && EnchantmentHelper.getSilkTouchModifier(event.harvester))
 				{
 					event.drops.add(new ItemStack(ModBlocks.mobCage, 1));
 				}
