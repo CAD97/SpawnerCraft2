@@ -118,10 +118,15 @@ public class ItemMobSpirit extends ItemMobSoul
 					{
 						entity.setCustomNameTag(stack.getDisplayName());
 					}
-					if (isWitherSkeleton && entity instanceof EntitySkeleton)
+					if (entity instanceof EntitySkeleton)
 					{
-						((EntitySkeleton) entity).setSkeletonType(1);
-						((EntitySkeleton) entity).getEquipmentInSlot(0).setItem(Items.stone_sword);
+						if (isWitherSkeleton) {
+							((EntitySkeleton) entity).setSkeletonType(1);
+							((EntitySkeleton) entity).getEquipmentInSlot(0).setItem(Items.stone_sword);
+						} else {
+							((EntitySkeleton) entity).setSkeletonType(0);
+							((EntitySkeleton) entity).getEquipmentInSlot(0).setItem(Items.bow);
+						}
 					}
 				}
 				if (!player.capabilities.isCreativeMode)
