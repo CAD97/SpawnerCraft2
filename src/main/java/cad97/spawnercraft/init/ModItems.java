@@ -37,7 +37,6 @@ public class ModItems
 	}
 
 	@SideOnly(Side.CLIENT)
-	@SuppressWarnings("unchecked")
 	private static void registerTextures()
 	{
 		// register item textures
