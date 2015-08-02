@@ -82,6 +82,15 @@ public abstract class ItemMobSoul extends SpawnerCraftItem
 			nbt.setString("entity_name", entityEggInfo.name);
 			stack.setTagCompound(nbt);
 			subItems.add(stack);
+
+			// WitherSkeleton
+			if (entityEggInfo.name.equals("Skeleton")) {
+				stack = new ItemStack(item);
+				nbt = new NBTTagCompound();
+				nbt.setString("entity_name", Reference.witherSkeletonEggInfo.name);
+				stack.setTagCompound(nbt);
+				subItems.add(stack);
+			}
 		}
 
 		// forge mobs
@@ -90,15 +99,6 @@ public abstract class ItemMobSoul extends SpawnerCraftItem
 			ItemStack stack = new ItemStack(item);
 			NBTTagCompound nbt = new NBTTagCompound();
 			nbt.setString("entity_name", name);
-			stack.setTagCompound(nbt);
-			subItems.add(stack);
-		}
-
-		// WitherSkeleton
-		{
-			ItemStack stack = new ItemStack(item);
-			NBTTagCompound nbt = new NBTTagCompound();
-			nbt.setString("entity_name", Reference.witherSkeletonEggInfo.name);
 			stack.setTagCompound(nbt);
 			subItems.add(stack);
 		}
