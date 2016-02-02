@@ -23,7 +23,7 @@ public class ItemMobSpirit extends ItemMobSoul
 	public ItemMobSpirit()
 	{
 		super();
-		setUnlocalizedName("mobSpirit");
+		setUnlocalizedName("spawnercraft.mobSpirit");
 	}
 
 	/**

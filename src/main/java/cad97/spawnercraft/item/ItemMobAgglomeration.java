@@ -5,6 +5,6 @@ public class ItemMobAgglomeration extends ItemMobSoul
 	public ItemMobAgglomeration()
 	{
 		super();
-		setUnlocalizedName("mobAgglomeration");
+		setUnlocalizedName("spawnercraft.mobAgglomeration");
 	}
 }

@@ -6,7 +6,7 @@ import net.minecraft.item.Item;
 
 public class SpawnerCraftTab
 {
-	public static final CreativeTabs tabSC = new CreativeTabs("tabSC")
+	public static final CreativeTabs tabSC = new CreativeTabs("spawnercraft.tabSC")
 	{
 		@Override
 		public Item getTabIconItem()

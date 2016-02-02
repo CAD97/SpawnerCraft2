@@ -17,7 +17,7 @@ public class BlockMobCage extends SpawnerCraftBlock
 		disableStats();
 		// as BlockMobSpawner registered in Block.registerBlocks()
 
-		setUnlocalizedName("mobCage");
+		setUnlocalizedName("spawnercraft.mobCage");
 		setHarvestLevel("pickaxe", 1);
 	}
 

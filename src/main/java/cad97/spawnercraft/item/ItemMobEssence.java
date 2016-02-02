@@ -5,6 +5,6 @@ public class ItemMobEssence extends ItemMobSoul
 	public ItemMobEssence()
 	{
 		super();
-		setUnlocalizedName("mobEssence");
+		setUnlocalizedName("spawnercraft.mobEssence");
 	}
 }

@@ -14,7 +14,7 @@ public class ItemMobRod extends SpawnerCraftItem
 	public ItemMobRod()
 	{
 		super();
-		setUnlocalizedName("mobRod");
+		setUnlocalizedName("spawnercraft.mobRod");
 		setMaxDamage(1024);
 		setMaxStackSize(1);
 	}

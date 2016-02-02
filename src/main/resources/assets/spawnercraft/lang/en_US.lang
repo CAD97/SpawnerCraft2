@@ -1,11 +1,11 @@
-item.mobEssence.name=Essence of %s
-item.mobAgglomeration.name=Agglomeration of %s
-item.mobSpirit.name=Spirit of %s
+item.spawnercraft.mobEssence.name=Essence of %s
+item.spawnercraft.mobAgglomeration.name=Agglomeration of %s
+item.spawnercraft.mobSpirit.name=Spirit of %s
 
-item.mobRod.name=Mob Fishing Pole
+item.spawnercraft.mobRod.name=Mob Fishing Pole
 
-tile.mobCage.name=Empty Spawner
+tile.spawnercraft.mobCage.name=Empty Spawner
 
-itemGroup.tabSC=SpawnerCraft
+itemGroup.spawnercraft.tabSC=SpawnerCraft
 
-entity.WitherSkeleton.name=Wither Skeleton
+entity.spawnercraft.WitherSkeleton.name=Wither Skeleton
