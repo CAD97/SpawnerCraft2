@@ -1,4 +1,5 @@
 
+// For those who want the bleeding edge
 buildscript {
     repositories {
         jcenter()
@@ -13,6 +14,12 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 
+/*
+// for people who want stable - not yet functional for MC 1.8.8 - we require the forgegradle 2.1 snapshot
+plugins {
+    id "net.minecraftforge.gradle.forge" version "2.0.2"
+}
+*/
 version = "1.10-2.3"
 group= "cad97.spawnercraft" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "SpawnerCraft2"
